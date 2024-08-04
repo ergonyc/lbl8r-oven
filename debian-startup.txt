@@ -1,0 +1,202 @@
+======================================
+Welcome to the Google Deep Learning VM
+======================================
+
+Version: common-cu121.m123
+Resources:
+ * Google Deep Learning Platform StackOverflow: https://stackoverflow.com/questions/tagged/google-dl-platform
+ * Google Cloud Documentation: https://cloud.google.com/deep-learning-vm
+ * Google Group: https://groups.google.com/forum/#!forum/google-dl-platform
+
+To reinstall Nvidia driver (if needed) run:
+sudo /opt/deeplearning/install-driver.sh
+Linux lbl8r-oven 5.10.0-30-cloud-amd64 #1 SMP Debian 5.10.218-1 (2024-06-01) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+
+This VM requires Nvidia drivers to function correctly.   Installation takes ~1 minute.
+Would you like to install the Nvidia driver? [y/n] y
+Installing Nvidia driver.
++ main
++ wait_apt_locks_released
++ echo 'wait apt locks released'
+wait apt locks released
++ sudo fuser /var/lib/dpkg/lock /var/lib/apt/lists/lock /var/cache/apt/archives/lock
++ sudo fuser /var/lib/dpkg/lock-frontend
++ install_linux_headers
++ echo 'install linux headers: linux-headers-cloud-amd64'
+install linux headers: linux-headers-cloud-amd64
+++ uname -r
++ sudo apt install -y linux-headers-cloud-amd64 linux-headers-5.10.0-30-cloud-amd64
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+linux-headers-5.10.0-30-cloud-amd64 is already the newest version (5.10.218-1).
+The following additional packages will be installed:
+  linux-headers-5.10.0-31-cloud-amd64 linux-headers-5.10.0-31-common linux-kbuild-5.10
+The following NEW packages will be installed:
+  linux-headers-5.10.0-31-cloud-amd64 linux-headers-5.10.0-31-common
+The following packages will be upgraded:
+  linux-headers-cloud-amd64 linux-kbuild-5.10
+2 upgraded, 2 newly installed, 0 to remove and 18 not upgraded.
+Need to get 11.2 MB of archives.
+After this operation, 57.0 MB of additional disk space will be used.
+Get:1 https://deb.debian.org/debian-security bullseye-security/main amd64 linux-headers-5.10.0-31-common all 5.10.221-1 [9245 kB]
+Get:2 https://deb.debian.org/debian-security bullseye-security/main amd64 linux-kbuild-5.10 amd64 5.10.221-1 [967 kB]
+Get:3 https://deb.debian.org/debian-security bullseye-security/main amd64 linux-headers-5.10.0-31-cloud-amd64 amd64 5.10.221-1 [993 kB]
+Get:4 https://deb.debian.org/debian-security bullseye-security/main amd64 linux-headers-cloud-amd64 amd64 5.10.221-1 [1180 B]
+Fetched 11.2 MB in 0s (66.1 MB/s)
+apt-listchanges: Reading changelogs...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend requires a screen at least 13 lines tall and 31 columns wide.)
+debconf: falling back to frontend: Readline
+Selecting previously unselected package linux-headers-5.10.0-31-common.
+(Reading database ... 137799 files and directories currently installed.)
+Preparing to unpack .../linux-headers-5.10.0-31-common_5.10.221-1_all.deb ...
+Unpacking linux-headers-5.10.0-31-common (5.10.221-1) ...
+Preparing to unpack .../linux-kbuild-5.10_5.10.221-1_amd64.deb ...
+Unpacking linux-kbuild-5.10 (5.10.221-1) over (5.10.218-1) ...
+Selecting previously unselected package linux-headers-5.10.0-31-cloud-amd64.
+Preparing to unpack .../linux-headers-5.10.0-31-cloud-amd64_5.10.221-1_amd64.deb ...
+Unpacking linux-headers-5.10.0-31-cloud-amd64 (5.10.221-1) ...
+Preparing to unpack .../linux-headers-cloud-amd64_5.10.221-1_amd64.deb ...
+Unpacking linux-headers-cloud-amd64 (5.10.221-1) over (5.10.218-1) ...
+Setting up linux-headers-5.10.0-31-common (5.10.221-1) ...
+Setting up linux-kbuild-5.10 (5.10.221-1) ...
+Setting up linux-headers-5.10.0-31-cloud-amd64 (5.10.221-1) ...
+/etc/kernel/header_postinst.d/dkms:
+dkms: running auto installation service for kernel 5.10.0-31-cloud-amd64:.
+Setting up linux-headers-cloud-amd64 (5.10.221-1) ...
++ source /opt/deeplearning/driver-version.sh
+++ export DRIVER_VERSION=550.90.07
+++ DRIVER_VERSION=550.90.07
++ export DRIVER_GCS_PATH
+++ get_attribute_value nvidia-driver-gcs-path
+++ get_metadata_value instance/attributes/nvidia-driver-gcs-path
+++ curl --retry 5 -s -f -H 'Metadata-Flavor: Google' http://metadata/computeMetadata/v1/instance/attributes/nvidia-driver-gcs-path
++ DRIVER_GCS_PATH=
++ install_nvidia_linux_drivers
++ echo 'DRIVER_VERSION: 550.90.07'
+DRIVER_VERSION: 550.90.07
++ local driver_installer_file_name=driver_installer.run
++ local nvidia_driver_file_name=NVIDIA-Linux-x86_64-550.90.07.run
++ custom_driver=false
++ local driver_gcs_file_path
++ [[ -z '' ]]
++ DRIVER_GCS_PATH=gs://nvidia-drivers-us-public/tesla/550.90.07
++ driver_gcs_file_path=gs://nvidia-drivers-us-public/tesla/550.90.07/NVIDIA-Linux-x86_64-550.90.07.run
++ echo 'Downloading driver from GCS location and install: gs://nvidia-drivers-us-public/tesla/550.90.07/NVIDIA-Linux-x86_64-550.90.07.run'
+Downloading driver from GCS location and install: gs://nvidia-drivers-us-public/tesla/550.90.07/NVIDIA-Linux-x86_64-550.90.07.run
++ set +e
++ gsutil -q cp gs://nvidia-drivers-us-public/tesla/550.90.07/NVIDIA-Linux-x86_64-550.90.07.run driver_installer.run
++ set -e
++ [[ ! -f driver_installer.run ]]
++ [[ ! -f driver_installer.run ]]
++ local open_kernel_module_arg=-m=kernel-open
++ IFS=.
++ read -r major minor patch
+++ get_metadata_value instance/machine-type
+++ curl --retry 5 -s -f -H 'Metadata-Flavor: Google' http://metadata/computeMetadata/v1/instance/machine-type
++ local -r machine_type_full=projects/347585189272/machineTypes/custom-18-119808
++ local machine_type=custom-18-119808
++ [[ 550 -lt 525 ]]
++ [[ custom-18-119808 =~ ^n ]]
++ [[ false == true ]]
++ chmod +x driver_installer.run
++ sudo ./driver_installer.run --dkms -a --ui=none --no-questions --no-drm --install-libglvnd -m=kernel-open
+Verifying archive integrity... OK
+Uncompressing NVIDIA Accelerated Graphics Driver for Linux-x86_64 550.90.07..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+
+Welcome to the NVIDIA Software Installer for Unix/Linux
+
+Detected 18 CPUs online; setting concurrency level to 18.
+Scanning the initramfs with lsinitramfs...
+Executing: /usr/bin/lsinitramfs   -l /boot/initrd.img-5.10.0-30-cloud-amd64
+Installing NVIDIA driver version 550.90.07.
+Performing CC sanity check with CC="/usr/bin/cc".
+Performing CC check.
+
+WARNING: The nvidia-drm module will not be installed. As a result, DRM-KMS will not function with this
+         installation of the NVIDIA driver.
+
+Kernel source path: '/lib/modules/5.10.0-30-cloud-amd64/source'
+Kernel output path: '/lib/modules/5.10.0-30-cloud-amd64/build'
+Performing Compiler check.
+Performing Dom0 check.
+Performing Xen check.
+Performing PREEMPT_RT check.
+Performing vgpu_kvm check.
+Cleaning kernel module build directory.
+Initramfs scan complete.
+Building kernel modules: 
+  [##############################] 100%
+Kernel module compilation complete.
+Kernel messages:
+[    4.092304] audit: type=1400 audit(1722767882.271:2): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="/usr/sbin/haveged" pid=503 comm="apparmor_parser"
+[    4.096123] audit: type=1400 audit(1722767882.271:3): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="lsb_release" pid=504 comm="apparmor_parser"
+[    4.098484] audit: type=1400 audit(1722767882.271:4): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="nvidia_modprobe" pid=499 comm="apparmor_parser"
+[    4.101805] audit: type=1400 audit(1722767882.271:5): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="nvidia_modprobe//kmod" pid=499 comm="apparmor_parser"
+[    4.104981] audit: type=1400 audit(1722767882.275:6): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="/usr/bin/man" pid=500 comm="apparmor_parser"
+[    4.104983] audit: type=1400 audit(1722767882.275:7): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="man_filter" pid=500 comm="apparmor_parser"
+[    4.104986] audit: type=1400 audit(1722767882.275:8): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="man_groff" pid=500 comm="apparmor_parser"
+[    4.104988] audit: type=1400 audit(1722767882.275:9): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="/usr/sbin/chronyd" pid=501 comm="apparmor_parser"
+[    4.104990] audit: type=1400 audit(1722767882.279:10): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="tcpdump" pid=498 comm="apparmor_parser"
+[    6.877559] audit: type=1400 audit(1722767885.056:11): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="docker-default" pid=1460 comm="apparmor_parser"
+[    6.944950] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to
+load br_netfilter if you need this.
+[    6.949977] Bridge firewalling registered
+[    7.140733] Initializing XFRM netlink socket
+[  403.491688] VFIO - User Level meta-driver version: 0.3
+[  403.551208] nvidia: loading out-of-tree module taints kernel.
+[  403.555406] nvidia: module verification failed: signature and/or required key missing - tainting kernel
+[  403.566894] nvidia-nvlink: Nvlink Core is being initialized, major device number 246
+
+[  403.796935] PCI Interrupt Link [LNKD] enabled at IRQ 11
+[  403.797374] NVRM: loading NVIDIA UNIX Open Kernel Module for x86_64  550.90.07  Release Build 
+(dvs-builder@U16-I2-C05-15-3)  Fri May 31 09:44:37 UTC 2024
+[  403.844862] nvidia-uvm: Loaded the UVM driver, major device number 244.
+[  403.858017] nvidia-modeset: Loading NVIDIA UNIX Open Kernel Mode Setting Driver for x86_64  550.90.07  Release
+Build  (dvs-builder@U16-I2-C05-15-3)  Fri May 31 09:34:25 UTC 2024
+[  403.863833] nvidia-modeset: Unloading
+[  403.890625] nvidia-uvm: Unloaded the UVM driver.
+[  403.945880] nvidia-nvlink: Unregistered Nvlink Core, major device number 246
+
+WARNING: nvidia-installer was forced to guess the X library path '/usr/lib64' and X module path
+         '/usr/lib64/xorg/modules'; these paths were not queryable from the system.  If X fails to find the NVIDIA
+         X driver module, please install the `pkg-config` utility and the X.Org SDK/development package for your
+         distribution and reinstall the driver.
+
+Install NVIDIA's 32-bit compatibility libraries? (Answer: Yes)
+Would you like to register the kernel module sources with DKMS? This will allow DKMS to automatically build a new
+module, if your kernel changes later. (Answer: Yes)
+Registering the kernel modules with DKMS:: Generating DKMS tarball
+  [##############################] 100%
+Searching for conflicting files:: Searching
+  [##############################] 100%
+Installing 'NVIDIA Accelerated Graphics Driver for Linux-x86_64' (550.90.07):: Installing
+  [##############################] 100%
+Driver file installation is complete.
+Running post-install sanity check:: Checking
+  [##############################] 100%
+Post-install sanity check passed.
+
+Installation of the NVIDIA Accelerated Graphics Driver for Linux-x86_64 (version: 550.90.07) is now complete.
+
++ rm -rf driver_installer.run
++ exit 0
+Nvidia driver installed.

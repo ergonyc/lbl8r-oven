@@ -5,6 +5,26 @@ https://cloud.google.com/compute/docs/disks/format-mount-disk-linux#console
 https://cloud.google.com/compute/docs/disks/set-persistent-device-name-in-linux-vm
 
 
+## conda config
+# maybe need this first: conda install -n base conda-libmamba-solver
+conda config --set solver libmamba
+
+
+## using the linux-deep-learning debian image
+this installs nvidia drivers with script:
+    + main
+    + wait_apt_locks_released
+    + echo 'wait apt locks released'
+    wait apt locks released
+    + sudo fuser /var/lib/dpkg/lock /var/lib/apt/lists/lock /var/cache/apt/archives/lock
+    + sudo fuser /var/lib/dpkg/lock-frontend
+    + install_linux_headers
+    + echo 'install linux headers: linux-headers-cloud-amd64'
+    install linux headers: linux-headers-cloud-amd64
+    ++ uname -r
+    + sudo apt install -y linux-headers-cloud-amd64 linux-headers-5.10.0-30-cloud-amd64
+
+
 - started with 50GB "lbl8r-oven".  38GB of initial "deep-learning linux" + conda env ~ 9GB free
 - added 450GB "scdata"
 
@@ -30,7 +50,6 @@ sudo mount -o discard,defaults /dev/sdb /data
 
 $ sudo  blkid /dev/sdb
 /dev/sdb: UUID="3faa5ab7-803b-415c-895c-e6913af5bfe3" BLOCK_SIZE="4096" TYPE="ext4"
-
 # add entries to /etc/fstab
 START
 # /etc/fstab: static file system information
@@ -39,3 +58,13 @@ UUID=4FFB-6B16 /boot/efi vfat defaults 0 0
 
 ADD
 UUID=3faa5ab7-803b-415c-895c-e6913af5bfe3 /data ext4 discard,defaults,rw 0 2
+
+
+
+
+###### etc
+setup github credentials with scp, and then use the machine like any other.
+
+also:
+    git config --global user.email "ergonyc@gmail.com"
+    git config --global user.name "Andy Henrie"
