@@ -18,6 +18,122 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
+Last login: Sun Aug  4 10:43:55 2024 from 24.43.226.201
+(base) ergonyc@lbl8r-oven:~$ Connection to 34.16.172.231 closed by remote host.
+Connection to 34.16.172.231 closed.
+❯ ssh lbl8r-oven
+======================================
+Welcome to the Google Deep Learning VM
+======================================
+
+Version: common-cu121.m123
+Resources:
+ * Google Deep Learning Platform StackOverflow: https://stackoverflow.com/questions/tagged/google-dl-platform
+ * Google Cloud Documentation: https://cloud.google.com/deep-learning-vm
+ * Google Group: https://groups.google.com/forum/#!forum/google-dl-platform
+
+To reinstall Nvidia driver (if needed) run:
+sudo /opt/deeplearning/install-driver.sh
+Linux lbl8r-oven 5.10.0-30-cloud-amd64 #1 SMP Debian 5.10.218-1 (2024-06-01) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sun Aug  4 19:23:04 2024 from 24.43.226.201
+(base) ergonyc@lbl8r-oven:~$ ls
+labelator
+(base) ergonyc@lbl8r-oven:~$ cd labelator/
+(base) ergonyc@lbl8r-oven:~/labelator$ ls
+--gen-plots        clean0_noise_cellassign  grp_genes.pkl       models                scib2.yml
+LICENSE            clean1_cellassign        grp_genes_pr.pkl    noise.png             scib3.yml
+README.md          clean1_noise_cellassign  labelator.sh        pca-batch-leiden.png  scib4.yml
+all_genes.pkl      data                     labelator_query.sh  pca-cell-type.png     scib_nb.yml
+artifacts          full0_cellassign         labelator_tt.sh     pca-noise.png         scib_nb2.yml
+batch-leiden.png   full0_noise_cellassign   lbl8r               pca-sample.png        scripts
+cell_type.png      full1_cellassign         lbl8r.yml           query_labelator.py    train_labelator.py
+clean0_cellassign  full1_noise_cellassign   lbl8r_nb.yml        sample.png            xyl2_full_hvg.csv
+(base) ergonyc@lbl8r-oven:~/labelator$ ls
+--gen-plots        clean0_noise_cellassign  grp_genes.pkl       models                scib2.yml
+LICENSE            clean1_cellassign        grp_genes_pr.pkl    noise.png             scib3.yml
+README.md          clean1_noise_cellassign  labelator.sh        pca-batch-leiden.png  scib4.yml
+all_genes.pkl      data                     labelator_query.sh  pca-cell-type.png     scib_nb.yml
+artifacts          full0_cellassign         labelator_tt.sh     pca-noise.png         scib_nb2.yml
+batch-leiden.png   full0_noise_cellassign   lbl8r               pca-sample.png        scripts
+cell_type.png      full1_cellassign         lbl8r.yml           query_labelator.py    train_labelator.py
+clean0_cellassign  full1_noise_cellassign   lbl8r_nb.yml        sample.png            xyl2_full_hvg.csv
+(base) ergonyc@lbl8r-oven:~/labelator$ nvidia-smi
+Mon Aug  5 05:52:37 2024       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.90.07              Driver Version: 550.90.07      CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       On  |   00000000:00:04.0 Off |                    0 |
+| N/A   42C    P8              9W /   70W |       1MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+(base) ergonyc@lbl8r-oven:~/labelator$ exit
+logout
+Connection to 34.16.213.243 closed.
+❯ ssh lbl8r-oven
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ED25519 key sent by the remote host is
+SHA256:hDz59nP6JGFvRo2E6lXX/zue0ywW/8rnlM9igF12zfs.
+Please contact your system administrator.
+Add correct host key in /Users/ergonyc/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /Users/ergonyc/.ssh/known_hosts:3
+Host key for 34.16.213.243 has changed and you have requested strict checking.
+Host key verification failed.
+❯ ssh lbl8r-oven
+The authenticity of host '34.16.213.243 (34.16.213.243)' can't be established.
+ED25519 key fingerprint is SHA256:hDz59nP6JGFvRo2E6lXX/zue0ywW/8rnlM9igF12zfs.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '34.16.213.243' (ED25519) to the list of known hosts.
+ergonyc@34.16.213.243: Permission denied (publickey).
+❯ cat ~/.ssh/lbl8r.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCTN8GWxLE14dqc1cN/8Hzcett5e8T80q/nvOdfVwXVDuiEkyDadFYTWL3c1SLAHvLbP4rC6jTFsm1ZiJZbu1J+FNG8eZk5BJ7NtnHBiwnJlxfSz8o0C3xmQ86fTsiUod3u/5iEzSzo7cP3Jd5lqxRYukeCOuWPWSV4ohaMH7P7RaJWnh8vaWmvJbbHnu7R+WP/j5ZmBFl6Ecb6qmomtNIKPSpPTpiGelkpEGnFEDLgvFXRu3t/emXOjHjEAQFveADDrXeiccEe/tk8v/jwCg6tHg88A7vopJVBjkiZkf077kWuHcs1/LnBhS4WfSRwrZ3g2jukK3RcSMDWJNoE6GVN ergonyc
+❯ cat ~/.ssh/lbl8r.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCTN8GWxLE14dqc1cN/8Hzcett5e8T80q/nvOdfVwXVDuiEkyDadFYTWL3c1SLAHvLbP4rC6jTFsm1ZiJZbu1J+FNG8eZk5BJ7NtnHBiwnJlxfSz8o0C3xmQ86fTsiUod3u/5iEzSzo7cP3Jd5lqxRYukeCOuWPWSV4ohaMH7P7RaJWnh8vaWmvJbbHnu7R+WP/j5ZmBFl6Ecb6qmomtNIKPSpPTpiGelkpEGnFEDLgvFXRu3t/emXOjHjEAQFveADDrXeiccEe/tk8v/jwCg6tHg88A7vopJVBjkiZkf077kWuHcs1/LnBhS4WfSRwrZ3g2jukK3RcSMDWJNoE6GVN ergonyc
+❯ ssh lbl8r-oven
+======================================
+Welcome to the Google Deep Learning VM
+======================================
+
+Version: common-cu123.m123
+Resources:
+ * Google Deep Learning Platform StackOverflow: https://stackoverflow.com/questions/tagged/google-dl-platform
+ * Google Cloud Documentation: https://cloud.google.com/deep-learning-vm
+ * Google Group: https://groups.google.com/forum/#!forum/google-dl-platform
+
+To reinstall Nvidia driver (if needed) run:
+sudo /opt/deeplearning/install-driver.sh
+Linux lbl8r-oven 5.10.0-30-cloud-amd64 #1 SMP Debian 5.10.218-1 (2024-06-01) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
 
 This VM requires Nvidia drivers to function correctly.   Installation takes ~1 minute.
 Would you like to install the Nvidia driver? [y/n] y
@@ -37,41 +153,8 @@ Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
 linux-headers-5.10.0-30-cloud-amd64 is already the newest version (5.10.218-1).
-The following additional packages will be installed:
-  linux-headers-5.10.0-31-cloud-amd64 linux-headers-5.10.0-31-common linux-kbuild-5.10
-The following NEW packages will be installed:
-  linux-headers-5.10.0-31-cloud-amd64 linux-headers-5.10.0-31-common
-The following packages will be upgraded:
-  linux-headers-cloud-amd64 linux-kbuild-5.10
-2 upgraded, 2 newly installed, 0 to remove and 18 not upgraded.
-Need to get 11.2 MB of archives.
-After this operation, 57.0 MB of additional disk space will be used.
-Get:1 https://deb.debian.org/debian-security bullseye-security/main amd64 linux-headers-5.10.0-31-common all 5.10.221-1 [9245 kB]
-Get:2 https://deb.debian.org/debian-security bullseye-security/main amd64 linux-kbuild-5.10 amd64 5.10.221-1 [967 kB]
-Get:3 https://deb.debian.org/debian-security bullseye-security/main amd64 linux-headers-5.10.0-31-cloud-amd64 amd64 5.10.221-1 [993 kB]
-Get:4 https://deb.debian.org/debian-security bullseye-security/main amd64 linux-headers-cloud-amd64 amd64 5.10.221-1 [1180 B]
-Fetched 11.2 MB in 0s (66.1 MB/s)
-apt-listchanges: Reading changelogs...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend requires a screen at least 13 lines tall and 31 columns wide.)
-debconf: falling back to frontend: Readline
-Selecting previously unselected package linux-headers-5.10.0-31-common.
-(Reading database ... 137799 files and directories currently installed.)
-Preparing to unpack .../linux-headers-5.10.0-31-common_5.10.221-1_all.deb ...
-Unpacking linux-headers-5.10.0-31-common (5.10.221-1) ...
-Preparing to unpack .../linux-kbuild-5.10_5.10.221-1_amd64.deb ...
-Unpacking linux-kbuild-5.10 (5.10.221-1) over (5.10.218-1) ...
-Selecting previously unselected package linux-headers-5.10.0-31-cloud-amd64.
-Preparing to unpack .../linux-headers-5.10.0-31-cloud-amd64_5.10.221-1_amd64.deb ...
-Unpacking linux-headers-5.10.0-31-cloud-amd64 (5.10.221-1) ...
-Preparing to unpack .../linux-headers-cloud-amd64_5.10.221-1_amd64.deb ...
-Unpacking linux-headers-cloud-amd64 (5.10.221-1) over (5.10.218-1) ...
-Setting up linux-headers-5.10.0-31-common (5.10.221-1) ...
-Setting up linux-kbuild-5.10 (5.10.221-1) ...
-Setting up linux-headers-5.10.0-31-cloud-amd64 (5.10.221-1) ...
-/etc/kernel/header_postinst.d/dkms:
-dkms: running auto installation service for kernel 5.10.0-31-cloud-amd64:.
-Setting up linux-headers-cloud-amd64 (5.10.221-1) ...
+linux-headers-cloud-amd64 is already the newest version (5.10.218-1).
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
 + source /opt/deeplearning/driver-version.sh
 ++ export DRIVER_VERSION=550.90.07
 ++ DRIVER_VERSION=550.90.07
@@ -137,44 +220,44 @@ Building kernel modules:
   [##############################] 100%
 Kernel module compilation complete.
 Kernel messages:
-[    4.092304] audit: type=1400 audit(1722767882.271:2): apparmor="STATUS" operation="profile_load"
-profile="unconfined" name="/usr/sbin/haveged" pid=503 comm="apparmor_parser"
-[    4.096123] audit: type=1400 audit(1722767882.271:3): apparmor="STATUS" operation="profile_load"
-profile="unconfined" name="lsb_release" pid=504 comm="apparmor_parser"
-[    4.098484] audit: type=1400 audit(1722767882.271:4): apparmor="STATUS" operation="profile_load"
-profile="unconfined" name="nvidia_modprobe" pid=499 comm="apparmor_parser"
-[    4.101805] audit: type=1400 audit(1722767882.271:5): apparmor="STATUS" operation="profile_load"
-profile="unconfined" name="nvidia_modprobe//kmod" pid=499 comm="apparmor_parser"
-[    4.104981] audit: type=1400 audit(1722767882.275:6): apparmor="STATUS" operation="profile_load"
-profile="unconfined" name="/usr/bin/man" pid=500 comm="apparmor_parser"
-[    4.104983] audit: type=1400 audit(1722767882.275:7): apparmor="STATUS" operation="profile_load"
-profile="unconfined" name="man_filter" pid=500 comm="apparmor_parser"
-[    4.104986] audit: type=1400 audit(1722767882.275:8): apparmor="STATUS" operation="profile_load"
-profile="unconfined" name="man_groff" pid=500 comm="apparmor_parser"
-[    4.104988] audit: type=1400 audit(1722767882.275:9): apparmor="STATUS" operation="profile_load"
-profile="unconfined" name="/usr/sbin/chronyd" pid=501 comm="apparmor_parser"
-[    4.104990] audit: type=1400 audit(1722767882.279:10): apparmor="STATUS" operation="profile_load"
-profile="unconfined" name="tcpdump" pid=498 comm="apparmor_parser"
-[    6.877559] audit: type=1400 audit(1722767885.056:11): apparmor="STATUS" operation="profile_load"
-profile="unconfined" name="docker-default" pid=1460 comm="apparmor_parser"
-[    6.944950] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to
+[    5.059836] audit: type=1400 audit(1722838070.223:2): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="/usr/sbin/haveged" pid=521 comm="apparmor_parser"
+[    5.063750] audit: type=1400 audit(1722838070.223:3): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="lsb_release" pid=522 comm="apparmor_parser"
+[    5.066275] audit: type=1400 audit(1722838070.223:4): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="nvidia_modprobe" pid=518 comm="apparmor_parser"
+[    5.066278] audit: type=1400 audit(1722838070.223:5): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="nvidia_modprobe//kmod" pid=518 comm="apparmor_parser"
+[    5.066281] audit: type=1400 audit(1722838070.223:6): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="/usr/bin/man" pid=519 comm="apparmor_parser"
+[    5.066283] audit: type=1400 audit(1722838070.223:7): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="man_filter" pid=519 comm="apparmor_parser"
+[    5.066286] audit: type=1400 audit(1722838070.223:8): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="man_groff" pid=519 comm="apparmor_parser"
+[    5.066290] audit: type=1400 audit(1722838070.227:9): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="/usr/sbin/chronyd" pid=520 comm="apparmor_parser"
+[    5.082106] audit: type=1400 audit(1722838070.231:10): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="tcpdump" pid=517 comm="apparmor_parser"
+[    8.524807] audit: type=1400 audit(1722838073.686:11): apparmor="STATUS" operation="profile_load"
+profile="unconfined" name="docker-default" pid=1895 comm="apparmor_parser"
+[    8.616847] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to
 load br_netfilter if you need this.
-[    6.949977] Bridge firewalling registered
-[    7.140733] Initializing XFRM netlink socket
-[  403.491688] VFIO - User Level meta-driver version: 0.3
-[  403.551208] nvidia: loading out-of-tree module taints kernel.
-[  403.555406] nvidia: module verification failed: signature and/or required key missing - tainting kernel
-[  403.566894] nvidia-nvlink: Nvlink Core is being initialized, major device number 246
+[    8.621989] Bridge firewalling registered
+[    8.774432] Initializing XFRM netlink socket
+[  242.973757] VFIO - User Level meta-driver version: 0.3
+[  243.033980] nvidia: loading out-of-tree module taints kernel.
+[  243.038181] nvidia: module verification failed: signature and/or required key missing - tainting kernel
+[  243.049194] nvidia-nvlink: Nvlink Core is being initialized, major device number 246
 
-[  403.796935] PCI Interrupt Link [LNKD] enabled at IRQ 11
-[  403.797374] NVRM: loading NVIDIA UNIX Open Kernel Module for x86_64  550.90.07  Release Build 
+[  243.065981] PCI Interrupt Link [LNKD] enabled at IRQ 11
+[  243.066462] NVRM: loading NVIDIA UNIX Open Kernel Module for x86_64  550.90.07  Release Build 
 (dvs-builder@U16-I2-C05-15-3)  Fri May 31 09:44:37 UTC 2024
-[  403.844862] nvidia-uvm: Loaded the UVM driver, major device number 244.
-[  403.858017] nvidia-modeset: Loading NVIDIA UNIX Open Kernel Mode Setting Driver for x86_64  550.90.07  Release
+[  243.112488] nvidia-uvm: Loaded the UVM driver, major device number 244.
+[  243.124921] nvidia-modeset: Loading NVIDIA UNIX Open Kernel Mode Setting Driver for x86_64  550.90.07  Release
 Build  (dvs-builder@U16-I2-C05-15-3)  Fri May 31 09:34:25 UTC 2024
-[  403.863833] nvidia-modeset: Unloading
-[  403.890625] nvidia-uvm: Unloaded the UVM driver.
-[  403.945880] nvidia-nvlink: Unregistered Nvlink Core, major device number 246
+[  243.130458] nvidia-modeset: Unloading
+[  243.161561] nvidia-uvm: Unloaded the UVM driver.
+[  243.224983] nvidia-nvlink: Unregistered Nvlink Core, major device number 246
 
 WARNING: nvidia-installer was forced to guess the X library path '/usr/lib64' and X module path
          '/usr/lib64/xorg/modules'; these paths were not queryable from the system.  If X fails to find the NVIDIA
@@ -199,4 +282,27 @@ Installation of the NVIDIA Accelerated Graphics Driver for Linux-x86_64 (version
 
 + rm -rf driver_installer.run
 + exit 0
-Nvidia driver installed.
+
+
+
+
+======================================
+Welcome to the Google Deep Learning VM
+======================================
+
+Version: common-cu123.m123
+Resources:
+ * Google Deep Learning Platform StackOverflow: https://stackoverflow.com/questions/tagged/google-dl-platform
+ * Google Cloud Documentation: https://cloud.google.com/deep-learning-vm
+ * Google Group: https://groups.google.com/forum/#!forum/google-dl-platform
+
+To reinstall Nvidia driver (if needed) run:
+sudo /opt/deeplearning/install-driver.sh
+Linux lbl8r-oven 5.10.0-31-cloud-amd64 #1 SMP Debian 5.10.221-1 (2024-07-14) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.

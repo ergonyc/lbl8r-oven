@@ -50,6 +50,7 @@ sudo mount -o discard,defaults /dev/sdb /data
 
 $ sudo  blkid /dev/sdb
 /dev/sdb: UUID="3faa5ab7-803b-415c-895c-e6913af5bfe3" BLOCK_SIZE="4096" TYPE="ext4"
+/dev/sdb: UUID="3faa5ab7-803b-415c-895c-e6913af5bfe3" BLOCK_SIZE="4096" TYPE="ext4"
 # add entries to /etc/fstab
 START
 # /etc/fstab: static file system information
@@ -64,6 +65,9 @@ UUID=3faa5ab7-803b-415c-895c-e6913af5bfe3 /data ext4 discard,defaults,rw 0 2
 
 ###### etc
 setup github credentials with scp, and then use the machine like any other.
+
+git clone git@github.com:ergonyc/labelator.git
+
 
 also:
     git config --global user.email "ergonyc@gmail.com"
